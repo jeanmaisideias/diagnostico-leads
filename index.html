@@ -31,8 +31,8 @@ header{margin-bottom:clamp(48px,8vh,86px)}
 .pitch-top h3{font-size:clamp(26px,6vw,35px);line-height:1.13;letter-spacing:-.7px;margin:12px 0}
 .pitch-top p{color:#d8d0e3;margin:0;line-height:1.6}
 .purple{color:#b898ff}
-.pitch-image-wrap{height:320px;display:flex;justify-content:center;align-items:flex-end;overflow:hidden;position:relative;background:radial-gradient(ellipse at center bottom,#3c2467 0%,transparent 65%)}
-.pitch-image-wrap img{height:320px;width:auto;max-width:100%;object-fit:contain;object-position:center bottom;display:block}
+.pitch-image-wrap{min-height:340px;height:340px;padding:0 14px;display:flex;justify-content:center;align-items:flex-end;overflow:hidden;position:relative;background:radial-gradient(ellipse at center bottom,#3c2467 0%,transparent 65%)}
+.pitch-image-wrap img{max-height:100%;height:auto;width:auto;max-width:100%;object-fit:contain;object-position:center bottom;display:block}
 .pitch-foot{padding:0 20px 23px}
 .pitch-foot .primary{width:100%;text-align:center}
 .pitch-foot .hint{margin-top:12px;text-align:center}
@@ -62,13 +62,43 @@ header{margin-bottom:clamp(48px,8vh,86px)}
  .field select,.field input{min-height:54px;font-size:16px}
  .pills{gap:7px}
  .pill{font-size:11px}
- .pitch-image-wrap{height:226px}
- .pitch-image-wrap img{height:280px}
+ .pitch-image-wrap{min-height:280px;height:280px}
+ .pitch-image-wrap img{max-height:100%;max-width:92%}
  .pitch-top{padding:25px 20px 0}
  .contact form{padding:16px}
  .result-score{font-size:72px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+
+<style>
+/* V3 — Botões verdes e enquadramento responsivo definitivo */
+:root{--cta-green:#25D366;--cta-text:#092315}
+.primary,.secondary,.mini-link{
+  background:var(--cta-green)!important;
+  background-image:none!important;
+  color:var(--cta-text)!important;
+  border:1px solid var(--cta-green)!important;
+  border-radius:12px;
+  font-weight:750;
+  text-decoration:none;
+  box-shadow:0 5px 18px rgba(37,211,102,.13);
+}
+.primary:hover,.secondary:hover,.mini-link:hover{background:#35e276!important;border-color:#35e276!important;filter:none}
+.primary:focus-visible,.secondary:focus-visible,.mini-link:focus-visible,.option:focus-visible{outline:3px solid #d3ffe1;outline-offset:3px}
+.primary:disabled,.secondary:disabled{opacity:.45;box-shadow:none}
+.mini-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px}
+.option.selected{background:#123527;border-color:var(--cta-green)}
+.option.selected .circle:after{background:var(--cta-green)}
+.option:hover{border-color:var(--cta-green)}
+/* Foto inteira no card sem recortar cabelo ou rosto */
+.pitch-image-wrap{height:clamp(300px,39vw,370px);min-height:0;padding:0 10px;overflow:hidden;align-items:flex-end}
+.pitch-image-wrap img{display:block;width:auto;height:100%;max-height:100%;max-width:100%;object-fit:contain;object-position:center bottom}
+@media(max-width:600px){
+ .pitch-image-wrap{height:clamp(260px,78vw,335px);min-height:0;padding:0 6px}
+ .pitch-image-wrap img{height:100%;width:auto;max-height:100%;max-width:100%;object-fit:contain}
+ .mini-link{width:100%}
+}
 </style>
 </head>
 <body>
